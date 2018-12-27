@@ -3,10 +3,10 @@ $dbhost = 'db.changken.org';
 $dbuser = 'sean';
 $dbpasswd = '12345678';
 $dbname = 'changken_web';
-$dsn = "mysql:host=".$dbhost.";dbname=".$dbname;
+$charset ='utf8';
+$dsn = "mysql:host=".$dbhost.";dbname=".$dbname.";charset=".$charset;
 try{
     $db = new PDO($dsn,$dbuser,$dbpasswd);
-    $conn->exec("SET CHARACTER SET utf8");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 }catch(PDOException $e){

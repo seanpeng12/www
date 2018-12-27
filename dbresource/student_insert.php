@@ -18,7 +18,7 @@ date_default_timezone_set('Asia/Taipei');
 <!--此網頁接值  $_SERVER["PHP_SELF"];-->
 
     
-    <form method="post" action="insert_result.php">
+    <form method="post" action="student_insert_result.php">
         id：<input name="id" type="text"><br>
         name：<input name="name" type="text"><br>
         email：<input name="email" type="text"><br>
