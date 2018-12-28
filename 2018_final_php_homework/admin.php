@@ -9,11 +9,13 @@
 <body
 >
 <?php
-    echo $_POST["contact_name"];
-    if (empty($_POST["contact_name"])){
-        echo "無數值";
+    $account= $_POST['contact_name'];
+    echo $account;
+
+    if (empty($_POST['contact_name'])){
+        echo "account無數值";
     }
-    echo $_POST["contact_last_name"];
+    echo $_POST['contact_last_name'];
 ?>
     
 </body>

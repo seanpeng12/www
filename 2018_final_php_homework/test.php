@@ -12,7 +12,7 @@
     $(function(){
         $("#send").click(function(){
            $.ajax({
-                url: "formc.php",
+                url: "index.php",
                 type: "POST",
                 success: function(result,status,xhr){
                     $('#result_hint').modal('toggle');
@@ -23,8 +23,8 @@
                     $('#result_here').html(status);
                 },
                 data: {
-                    "username" : $("#username").val(),
-                    "password" : $("#password").val(),
+                    "username" : $("#contact_name").val(),
+                    "password" : $("#contact_last_name").val(),
                 },
                 dataType: "text"
             });  
@@ -33,7 +33,7 @@
 </script>
 
 <body>
-<form action="ad/BusinessAction!list.action" method=”post” name="form1">
+<form action="ad/BusinessAction!list.action" method=”post” name="form1" id="form1">
         <input type="radio" name="profile_id" id="teacher" checked required>教師&nbsp
 		<input type="radio" name="profile_id" id="student">學生&nbsp
 		<input type="radio" name="profile_id" id="admin">管理者&nbsp
@@ -44,14 +44,16 @@
 		<label for="contact_last_name">密碼*</label>
 		<input type="password" name="contact_last_name" class="contact_input" required="required">
 
-        <input type="submit" class="mulButton" name="Ids" id="allcheck" 
-        onclick="manySend('ad/BusinessAction!sendmany.action')" value="送出">
+        <input type="button" onclick="manySend('ad/BusinessAction!sendmany.action')"
+         class="mulButton" name="Ids" id="allcheck" value="送出">
 </form>
 
 <!--下面input框提交的action不同，用onclick跳轉，js方法-->
 
 <script>
 //js方法如下
+
+
 function manySend(){ 
     if (document.getElementById("teacher").checked) {
         var form = document.form1; 
@@ -67,6 +69,7 @@ function manySend(){
         var form = document.form1; 
 		form.action = "admin.php";//傳想要跳轉的路徑 
         form.submit(); 
+
 	}   
 }
 
