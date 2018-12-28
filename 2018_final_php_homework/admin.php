@@ -6,7 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理者</title>
 </head>
-<body>
+<body
+>
+<?php
+    echo $_POST["contact_name"];
+    if (empty($_POST["contact_name"])){
+        echo "無數值";
+    }
+    echo $_POST["contact_last_name"];
+?>
     
 </body>
 </html>

@@ -311,7 +311,7 @@
 
 							function output($website) {
 								if (document.getElementById("teacher").checked) {
-									$website = "teacher.php";
+									document.getElementById("contact_form").attr('action', '"teacher.php"');
 								}
 
 								if (document.getElementById("student").checked) {

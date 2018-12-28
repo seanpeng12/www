@@ -35,8 +35,8 @@ session_start();
       unset($_SESSION['id']);
       unset($_SESSION['pass']);
     };
-
-    if(empty($_SESSION["id"])){
+    //若無cookie
+    if(empty($_SESSION["id"])){  
       echo '
       
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,6 +56,7 @@ session_start();
     密碼：<input type="password" name="pass">
     <input type="submit" value="登入">
     </form>';
+    //已經有cookie
     }else{
       echo '
       
