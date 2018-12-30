@@ -9,13 +9,13 @@
 <body
 >
 <?php
-    $account= $_POST['contact_name'];
+    $account= $_POST['username'];
     echo $account;
 
     if (empty($_POST['contact_name'])){
         echo "account無數值";
     }
-    echo $_POST['contact_last_name'];
+    echo $_POST['passpord'];
 ?>
     
 </body>

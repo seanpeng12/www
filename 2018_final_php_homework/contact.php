@@ -274,6 +274,39 @@
 			</div>
 		</div>
 
+
+		<?php
+			include("inc.php");
+			/*
+			$dbhost = 'localhost';
+			$dbuser = 'root';
+			$dbpasswd = '96748961';
+			$dbname = 'sean_web';
+			$charset ='utf8';
+			$dsn = "mysql:host=".$dbhost.";dbname=".$dbname.";charset=".$charset;
+			try{
+    			$db = new PDO($dsn,$dbuser,$dbpasswd);
+    			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    			$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+			}catch(PDOException $e){
+    			echo "CONNECTION FAILED!：".$e->getMessage();
+			}
+			if(isset()){
+
+			}
+			$res = $db->exec("INSERT INTO student (`company`,`content`,`pddate`)
+			VALUES
+				('{$_POST["company"]}','{$_POST["content"]}', '{$_POST["pddate"]}');");
+			if($res > 0){
+				echo "新增成功";
+			}else{
+				echo "新增不成功";
+			}
+			*/
+		?>
+		
+
+
 		<!-- Contact -->
 
 		<div class="contact">
@@ -293,7 +326,7 @@
 					</form>
 				</div>
 				<div class="contact_form_container">
-					<form action="onclick='output();'"  method="post"  id="contact_form" class="contact_form">
+					<form  method="post"  id="contact_form" class="contact_form">
 						<div class="row">
 							<div class="col-xl-12">
 								<!-- Name -->
@@ -306,29 +339,43 @@
 								<input type="password" id="contact_last_name" class="contact_input" required="required">
 							</div>
 						</div>
-						<!-- JSP跳轉(無post數值(需添加)) -->
+
+						<!-- JSP跳轉(無post數值(需添加))
 						<script>
 
 							function output($website) {
 								if (document.getElementById("teacher").checked) {
-									document.getElementById("contact_form").attr('action', '"teacher.php"');
+									$website = "teacher.php";
+									document.getElementById('contact_form').action ='teacher.php';
 								}
 
 								if (document.getElementById("student").checked) {
 									$website = "student.php";
-									
+									document.getElementById('contact_form').action ='student.php';
 								}
 								if (document.getElementById("admin").checked) {
 									$website = "admin.php";
-									
-
+									document.getElementById('contact_form').action ='admin.php';
 								}
 							}
+							
+						}
+						 
 						</script>
+						-->
 
-						<button class="button contact_button" type="submit"><span>確定</span></button>
+						<button class="button contact_button" type="submit" ><span>確定</span></button>
 						<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
 					</form>
+
+					<?php
+						//學生資料查詢
+						include("inc.php");
+						$sql = 'SELECT * FROM sean_web.student where account="root";';
+						$schoolID = mysqli_query($conn,$sql);
+						$record = mysqli_fetch_row($schoolID);
+						
+					?>
 				</div>
 			</div>
 		</div>

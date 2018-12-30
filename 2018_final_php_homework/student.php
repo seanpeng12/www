@@ -29,7 +29,14 @@
 </head>
 
 <body>
+	<?php
+		//學生資料查詢
+		include("inc.php");
+		$sql = 'SELECT * FROM sean_web.student where account="root";';
+		$schoolID = mysqli_query($conn,$sql);
+		$record = mysqli_fetch_row($schoolID);
 
+	?>
 
 	<!-- （Modal）for group select -->
 
@@ -209,7 +216,9 @@
 											</ul>
 										</li>
 										<li><a href="contact.php">登出</a></li>
-										<h3 style=color:brown>學生406403101</h3>
+										
+										
+										<h3 style=color:brown><?php echo $record[1],"  ",$record[0]?> </h3>
 
 									</ul>
 								</nav>
