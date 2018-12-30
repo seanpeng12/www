@@ -320,23 +320,23 @@
 								<div class="section_subtitle">LOG IN</div>
 								<div class="section_title">
 									<p>請選擇登入身分<br></p>
-									<input type="radio" name="profile_id" id="teacher" checked required>教師&nbsp
-									<input type="radio" name="profile_id" id="student">學生&nbsp
-									<input type="radio" name="profile_id" id="admin">管理者&nbsp
+									<input type="radio" name="profile_id" value="1" checked required>教師&nbsp
+									<input type="radio" name="profile_id" value="2">學生&nbsp
+									<input type="radio" name="profile_id" value="3">管理者&nbsp
 					</form>
 				</div>
 				<div class="contact_form_container">
-					<form  method="post"  id="contact_form" class="contact_form">
+					<form action="<?$_SERVER["PHP_SELF"];?>" method="post"  id="contact_form" class="contact_form">
 						<div class="row">
 							<div class="col-xl-12">
 								<!-- Name -->
 								<label for="contact_name">帳號*</label>
-								<input type="text" id="contact_name" class="contact_input" required="required">
+								<input type="text" name="account" class="contact_input" required="required">
 							</div>
 							<div class="col-xl-12 last_name_col">
 								<!-- Last Name -->
 								<label for="contact_last_name">密碼*</label>
-								<input type="password" id="contact_last_name" class="contact_input" required="required">
+								<input type="password" name="password" class="contact_input" required="required">
 							</div>
 						</div>
 
@@ -368,14 +368,7 @@
 						<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
 					</form>
 
-					<?php
-						//學生資料查詢
-						include("inc.php");
-						$sql = 'SELECT * FROM sean_web.student where account="root";';
-						$schoolID = mysqli_query($conn,$sql);
-						$record = mysqli_fetch_row($schoolID);
-						
-					?>
+					
 				</div>
 			</div>
 		</div>
