@@ -24,37 +24,61 @@
 </form>
 <?php
     include("inc.php");
-    
+
 	$username = $_POST["account"]; /* 剛剛text 輸入的帳號*/	
 	$passord = $_POST["password"]; /* 剛剛text 輸入的密碼*/
-	echo $username."<br>"; 
+    echo $username."<br>"; 
     echo $passord."<br>";
-    
+   
     //學生資料查詢
-    $sql = 'SELECT * FROM sean_web.student where account=$username;';
-    $temp = mysqli_query($conn,$sql);
-    $student_inf = mysqli_fetch_row($temp);
+    $sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
+    if ($result=mysqli_query($conn,$sql))
+    {
+    // 一条条获取
+        while ($student_row=mysqli_fetch_row($result))
+        {
+        echo ("學生=".$student_row[1]);
+        echo "<br>";
+         }
+    }
     //老師資料查詢
-    $sql1 = 'SELECT * FROM sean_web.teacher where account=$username;';
-    $temp1 = mysqli_query($conn,$sql1);
-    $teacher_inf = mysqli_fetch_row($temp1);
-    
+    $sql1 = "SELECT * FROM sean_web.teacher where account = '$username';";
+    if ($result=mysqli_query($conn,$sql1))
+    {
+    // 一条条获取
+        while ($teacher_row=mysqli_fetch_row($result))
+        {
+        echo ("老師=".$teacher_row[1]);
+        echo "<br>";
+         }
+    }
     //管理者資料查詢
-    $sql2 = 'SELECT * FROM sean_web.admin where account=$username;';
-    $temp2 = mysqli_query($conn,$sql2);
-    $admin_inf = mysqli_fetch_row($temp2);
-    echo "名字為：".$admin_inf[1]."<br>";
+    $sql2 = "SELECT * FROM sean_web.admin where account = '$username';";
+    if ($result=mysqli_query($conn,$sql2))
+    {
+    // 一条条获取
+        while ($admin_row=mysqli_fetch_row($result))
+        {
+        echo ("管理者=".$admin_row[1]);
+        echo "<br>";
+         }
+    }else{
+        echo "抓不到資料";
+    }
 ?>
 
 <script>
     var $account = "<?php echo $username ?>";
     var $password = "<?php echo $password ?>";
-    var $ttt = "<?php echo $admin_inf ?>";
+    var $ttt = "<?php echo $admin_row[1] ?>";
 
     function check() {
         if (document.getElementById("admin_radio").checked) {
-            if($ttt = $account){
+            if($ttt = 'root'){
                 window.alert("帳號正確!");
+            }
+            if($att != 'root')
+                window.alert("帳號錯誤!");
             }
         }
 								
