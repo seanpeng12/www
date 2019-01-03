@@ -16,7 +16,26 @@
 	<link rel="stylesheet" href="sweetalert2.min.css">	
 	<script src="dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
-		swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
+		//swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
+		
+		$(function(){
+			$("input[name=profile_id]").change(function(){
+				switch($("input[name=profile_id]").val()){
+					case 1:
+						$("#loginForm").attr('action', 'teacher.php');
+						alert(1);
+						break;
+					case 2:
+						$("#loginForm").attr('action', 'student.php');
+						alert(2);
+						break;
+					case 3:
+						$("#loginForm").attr('action', 'admin.php');
+						alert(3);
+				}
+			});
+		});
+	
 	</script>
 
 </head>
@@ -284,8 +303,8 @@
 
 
 		<?php
+        /*
             include("inc.php");
-            /*
             $dbhost = 'localhost';
             $dbuser = 'root';
             $dbpasswd = '96748961';
@@ -322,7 +341,8 @@
 				<div class="row">
 
 					<!-- Get in touch -->
-					<form action="<?$_SERVER["PHP_SELF"];?>" method="post"  id="contact_form" class="contact_form">
+					<!-- $_SERVER["PHP_SELF"]; -->
+					<form action="login_center.php" method="post"  id="contact_form" class="contact_form">
 						<div class="col-lg-8 contact_col">
 							<div class="get_in_touch">
 								<div class="section_subtitle">LOG IN</div>
@@ -336,18 +356,20 @@
 					
 		</div>
 			<div class="contact_form_container">
+			<form action="" method="post" id="loginForm">
 				<div class="row">
 					<div class="col-xl-12">
 						<!-- Name -->
 						<label for="contact_name">帳號*</label>
-						<input type="text" name="account" class="contact_input" required="required">
+						<input type="text" name="account" id="account" class="contact_input" required="required">
 					</div>
 					<div class="col-xl-12 last_name_col">
 						<!-- Last Name -->
 						<label for="contact_last_name">密碼*</label>
-						<input type="password" name="password" class="contact_input" required="required">
+						<input type="password" name="password" id="password" class="contact_input" required="required">
 					</div>
 				</div>
+				</form>
 
 				<!-- JSP跳轉(無post數值(需添加))
 						<script>
@@ -377,41 +399,50 @@
                 include("inc.php");
 
                 $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
-                $passord = $_POST["password"]; /* 剛剛text 輸入的密碼*/
+                $password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
                 //echo $username."<br>";
                 //echo $passord."<br>";
    
     
                 if ($_POST['profile_id']==1) {
                     echo "教師"."<br>";
-                    $sql1 = "SELECT * FROM sean_web.teacher where account = '$username';";
+                    $sql = "SELECT * FROM `sean_web`.`teacher` where `account` = '$username';";
                 } elseif ($_POST['profile_id']==2) {
                     echo "學生"."<br>";
                     $sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
                 } elseif ($_POST['profile_id']==3) {
                     echo "管理者"."<br>";
-                    $sql2 = "SELECT * FROM sean_web.admin where account = '$username';";
+                    $sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
                 }
                 
                 if (isset($sql)) {
                     //學生資料查詢
-                    if ($result=mysqli_query($conn, $sql)) {
-                        // 一条条获取
-                        while ($student_row=mysqli_fetch_row($result)) {
-							
+                    if ($result = mysqli_query($conn, $sql)) {
+                        // 一条条获取(殘體中文)
+                        $rows = mysqli_fetch_array($result, MYSQLI_BOTH);
+                            
+                        if ($username == $row[6] && $password == $row[7]) {
+                            //echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
+                            switch ($_POST['profile_id']) {
+                                case 1:
+                                    $goto = 'teacher';
+                                    break;
+                                case 2:
+                                    $goto = 'student';
+                                    break;
+                                case 3:
+                                    $goto = 'admin';
 
-							if($username = $student_row[6] && $passord = $student_row[7]){
-								//echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
-								echo "<script>document.action ='student.php';</script>";
-
-							}
-                            //echo("sql學生名字=".$student_row[1])."<br>";
+                            }
+                            echo "<script>location.href='{$goto}.php';</script>";
+                        }
+                        //echo("sql學生名字=".$student_row[1])."<br>";
                             //echo("sql學生帳號=".$student_row[6])."<br>";
                             //echo("sql學生密碼=".$student_row[7])."<br>";
-                        }
                     }
                 }
                 
+                /*
                 if (isset($sql1)) {
                     //老師資料查詢
                     if ($result=mysqli_query($conn, $sql1)) {
@@ -423,7 +454,7 @@
                         }
                     }
                 }
-                
+
                 if (isset($sql2)) {
                     //管理者資料查詢
                     if ($result=mysqli_query($conn, $sql2)) {
@@ -435,7 +466,7 @@
                         }
                     }
                 }
-                
+                */
                 
                 
 
