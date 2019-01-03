@@ -1,8 +1,8 @@
-<!DOCTYPE php>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>Product</title>
+	<title>線上評分</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Sublime project">
@@ -214,72 +214,45 @@
 							<div class="product_quantity_container">
 								<div class="details_name">文件初稿30%</div>
 								<div class="product_quantity clearfix">
-									<span>系統描述</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									<span>系統描述：</span>
+									<input id="a_1" type="text" pattern="[0-9]*"  value="0">
+								</div>
+								<div class="product_quantity ">
+									<span>需求規格：</span>
+									<input id="a_2" type="text" pattern="[0-9]*"  value="0">
 								</div>
 								<div class="product_quantity clearfix">
-									<span>需求規格</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
-								</div>
-								<div class="product_quantity clearfix">
-									<span>設計規格</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									<span>設計規格：</span>
+									<input id="a_3" type="text" pattern="[0-9]*" value="0">
 								</div>
 
 								<div>&nbsp;</div>
 
 								<div class="details_name">系統功能30%</div>
 								<div class="product_quantity clearfix">
-									<span>功能創新性</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									<span>功能創新性：</span>
+									<input id="b_1" type="text" pattern="[0-9]*" value="0">
+									
 								</div>
 								<div class="product_quantity clearfix">
-									<span>功能實用性</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									<span>功能實用性：</span>
+									<input id="b_2" type="text" pattern="[0-9]*" value="0">
+									
 								</div>
 								<div class="product_quantity clearfix">
-									<span>介面親和性</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									<span>介面親和性：</span>
+									<input id="b_3" type="text" pattern="[0-9]*" value="0">
+									
 								</div>
 								<div class="product_quantity clearfix">
 									<span>系統技術性</span>
 									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									
 								</div>
 								<div class="product_quantity clearfix">
 									<span>內容豐富性</span>
 									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
+									
 								</div>
 
 								<div>&nbsp;</div>
@@ -416,36 +389,7 @@
 
 
 
-			<!-- Footer -->
-
-			<div class="footer_overlay"></div>
-			<footer class="footer">
-				<div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-								<div class="footer_logo"><a href="#">Sublime.</a></div>
-								<div class="copyright ml-auto mr-auto">
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-									Copyright &copy;
-									<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
-									 class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								</div>
-								<div class="footer_social ml-lg-auto">
-									<ul>
-										<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
+			
 		</div>
 
 		<script src="js/jquery-3.2.1.min.js"></script>

@@ -995,12 +995,12 @@ section
 }
 .product_quantity_container
 {
-	margin-top: 48px;
+	margin-top: 60px;
 }
 .product_quantity
 {
 	display: inline-block;
-	width: 200px;
+	width: 250px;
 	height: 61px;
 	border: solid 2px #d0d0d0;
 	overflow: hidden;
@@ -1011,7 +1011,7 @@ section
 {
 	position: absolute;
 	top: 50%;
-	left: 23px;
+	left: 40px;
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -1028,11 +1028,11 @@ section
 	height: 57px;
 	border: none;
 	outline: none;
-	font-size: 16px;
+	font-size: 32px;
 	font-weight: 600;
 	color: #1b1b1b;
 	text-align: center;
-	padding-left: 19px;
+	padding-left: 29px;
 	line-height: 39px;
 	float: left;
 }

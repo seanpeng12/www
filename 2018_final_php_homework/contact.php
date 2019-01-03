@@ -7,13 +7,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Sublime project">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="styles/contact.css">
 	<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
-</head>
+	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+	<link rel="stylesheet" href="sweetalert2.min.css">	
+	<script src="dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
+	</script>
 
+</head>
 <body>
+
 	<!-- Modal -->
 	<div class="modal fade bg-example-modal-lg" id="myModal" role="dialog">
 		<div class="modal-dialog modal-lg">
@@ -276,34 +284,34 @@
 
 
 		<?php
-			include("inc.php");
-			/*
-			$dbhost = 'localhost';
-			$dbuser = 'root';
-			$dbpasswd = '96748961';
-			$dbname = 'sean_web';
-			$charset ='utf8';
-			$dsn = "mysql:host=".$dbhost.";dbname=".$dbname.";charset=".$charset;
-			try{
-    			$db = new PDO($dsn,$dbuser,$dbpasswd);
-    			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    			$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-			}catch(PDOException $e){
-    			echo "CONNECTION FAILED!：".$e->getMessage();
-			}
-			if(isset()){
+            include("inc.php");
+            /*
+            $dbhost = 'localhost';
+            $dbuser = 'root';
+            $dbpasswd = '96748961';
+            $dbname = 'sean_web';
+            $charset ='utf8';
+            $dsn = "mysql:host=".$dbhost.";dbname=".$dbname.";charset=".$charset;
+            try{
+                $db = new PDO($dsn,$dbuser,$dbpasswd);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+            }catch(PDOException $e){
+                echo "CONNECTION FAILED!：".$e->getMessage();
+            }
+            if(isset()){
 
-			}
-			$res = $db->exec("INSERT INTO student (`company`,`content`,`pddate`)
-			VALUES
-				('{$_POST["company"]}','{$_POST["content"]}', '{$_POST["pddate"]}');");
-			if($res > 0){
-				echo "新增成功";
-			}else{
-				echo "新增不成功";
-			}
-			*/
-		?>
+            }
+            $res = $db->exec("INSERT INTO student (`company`,`content`,`pddate`)
+            VALUES
+                ('{$_POST["company"]}','{$_POST["content"]}', '{$_POST["pddate"]}');");
+            if($res > 0){
+                echo "新增成功";
+            }else{
+                echo "新增不成功";
+            }
+            */
+        ?>
 		
 
 
@@ -314,7 +322,7 @@
 				<div class="row">
 
 					<!-- Get in touch -->
-					<form action="Login_success.php">
+					<form action="<?$_SERVER["PHP_SELF"];?>" method="post"  id="contact_form" class="contact_form">
 						<div class="col-lg-8 contact_col">
 							<div class="get_in_touch">
 								<div class="section_subtitle">LOG IN</div>
@@ -324,23 +332,24 @@
 									<input type="radio" name="profile_id" value="2">學生&nbsp
 									<input type="radio" name="profile_id" value="3">管理者&nbsp
 					</form>
-				</div>
-				<div class="contact_form_container">
-					<form action="<?$_SERVER["PHP_SELF"];?>" method="post"  id="contact_form" class="contact_form">
-						<div class="row">
-							<div class="col-xl-12">
-								<!-- Name -->
-								<label for="contact_name">帳號*</label>
-								<input type="text" name="account" class="contact_input" required="required">
-							</div>
-							<div class="col-xl-12 last_name_col">
-								<!-- Last Name -->
-								<label for="contact_last_name">密碼*</label>
-								<input type="password" name="password" class="contact_input" required="required">
-							</div>
-						</div>
 
-						<!-- JSP跳轉(無post數值(需添加))
+					
+		</div>
+			<div class="contact_form_container">
+				<div class="row">
+					<div class="col-xl-12">
+						<!-- Name -->
+						<label for="contact_name">帳號*</label>
+						<input type="text" name="account" class="contact_input" required="required">
+					</div>
+					<div class="col-xl-12 last_name_col">
+						<!-- Last Name -->
+						<label for="contact_last_name">密碼*</label>
+						<input type="password" name="password" class="contact_input" required="required">
+					</div>
+				</div>
+
+				<!-- JSP跳轉(無post數值(需添加))
 						<script>
 
 							function output($website) {
@@ -361,12 +370,80 @@
 							
 						}
 						 
-						</script>
-						-->
+				</script>
+				-->
+				
+				<?php
+                include("inc.php");
 
-						<button class="button contact_button" type="submit" ><span>確定</span></button>
-						<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
-					</form>
+                $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
+                $passord = $_POST["password"]; /* 剛剛text 輸入的密碼*/
+                //echo $username."<br>";
+                //echo $passord."<br>";
+   
+    
+                if ($_POST['profile_id']==1) {
+                    echo "教師"."<br>";
+                    $sql1 = "SELECT * FROM sean_web.teacher where account = '$username';";
+                } elseif ($_POST['profile_id']==2) {
+                    echo "學生"."<br>";
+                    $sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
+                } elseif ($_POST['profile_id']==3) {
+                    echo "管理者"."<br>";
+                    $sql2 = "SELECT * FROM sean_web.admin where account = '$username';";
+                }
+                
+                if (isset($sql)) {
+                    //學生資料查詢
+                    if ($result=mysqli_query($conn, $sql)) {
+                        // 一条条获取
+                        while ($student_row=mysqli_fetch_row($result)) {
+							
+
+							if($username = $student_row[6] && $passord = $student_row[7]){
+								//echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
+								echo "<script>document.action ='student.php';</script>";
+
+							}
+                            //echo("sql學生名字=".$student_row[1])."<br>";
+                            //echo("sql學生帳號=".$student_row[6])."<br>";
+                            //echo("sql學生密碼=".$student_row[7])."<br>";
+                        }
+                    }
+                }
+                
+                if (isset($sql1)) {
+                    //老師資料查詢
+                    if ($result=mysqli_query($conn, $sql1)) {
+                        // 一条条获取
+                        while ($teacher_row=mysqli_fetch_row($result)) {
+                            //echo("sql老師名字=".$teacher_row[1])."<br>";
+                            //echo("sql老師帳號=".$teacher_row[5])."<br>";
+                            //echo("sql老師密碼=".$teacher_row[6])."<br>";
+                        }
+                    }
+                }
+                
+                if (isset($sql2)) {
+                    //管理者資料查詢
+                    if ($result=mysqli_query($conn, $sql2)) {
+                        // 一条条获取
+                        while ($admin_row=mysqli_fetch_row($result)) {
+                            //echo("sql管理名字=".$admin_row[1])."<br>";
+                            //echo("sql管理帳號=".$admin_row[4])."<br>";
+                            //echo("sql管理密碼=".$admin_row[5])."<br>";
+                        }
+                    }
+                }
+                
+                
+                
+
+            ?>
+			
+				<button class="button contact_button" type="submit" onclick=(func()) ><span>確定</span></button>
+				<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
+			</form>
 
 					
 				</div>
