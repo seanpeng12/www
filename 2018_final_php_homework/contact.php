@@ -17,25 +17,6 @@
 	<script src="dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		//swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
-		/*
-		$(function () {
-			$("input[name=profile_id]").change(function () {
-				switch ($("input[name=profile_id]").val()) {
-					case 1:
-						$("#loginForm").attr('action', 'teacher.php');
-						alert(1);
-						break;
-					case 2:
-						$("#loginForm").attr('action', 'student.php');
-						alert(2);
-						break;
-					case 3:
-						$("#loginForm").attr('action', 'admin.php');
-						alert(3);
-				}
-			});
-		});
-		*/
 	</script>
 
 </head>
@@ -312,7 +293,7 @@
 
 					<!-- Get in touch -->
 					<!-- $_SERVER["PHP_SELF"]; -->
-					<form action="login_center.php" method="post" id="contact_form" class="contact_form">
+					<form action="loginpage.php" method="post" id="contact_form" class="contact_form">
 						<div class="col-lg-8 contact_col">
 							<div class="get_in_touch">
 								<div class="section_subtitle">LOG IN</div>
@@ -411,7 +392,7 @@
 			$rows = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 			if ($username == $row[6] && $password == $row[7]) {
-                          				  //echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
+            
 				switch ($_POST['profile_id']) {
 					case 1:
 						$goto = 'teacher';
@@ -425,9 +406,9 @@
 				}
 				echo "<script>location.href='{$goto}.php';</script>";
 			}
-                        	//echo("sql學生名字=".$student_row[1])."<br>";
-                            //echo("sql學生帳號=".$student_row[6])."<br>";
-                            //echo("sql學生密碼=".$student_row[7])."<br>";
+            //echo("sql學生名字=".$student_row[1])."<br>";
+            //echo("sql學生帳號=".$student_row[6])."<br>";
+            //echo("sql學生密碼=".$student_row[7])."<br>";
 		}
 	}
 	?>
