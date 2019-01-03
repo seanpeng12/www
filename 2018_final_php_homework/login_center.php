@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include("inc.php");
 
 $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
@@ -17,14 +19,30 @@ if ($_POST['profile_id']==1) {
     echo "管理者"."<br>";
     $sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
 }
-                
+
+            
 if (isset($sql)) {
     //學生資料查詢
     if ($result = mysqli_query($conn, $sql)) {
         // 一条条获取(殘體中文)
-        $rows = mysqli_fetch_all($result, $conn);
-                            
-        if ($username == $row[0] && $password == $row[1]) {
+       
+        $rows = mysqli_fetch_row($result);
+        if($row[1] == $username && $row[2] == $password)
+        {
+            //將帳號寫入session，方便驗證使用者身份
+            $_SESSION['username'] = $id;
+            echo '登入成功!';
+            echo $_POST['profile_id'];
+        }
+        else
+        {
+            echo '登入失敗!';
+            echo $username;
+            echo $password;
+            echo '<meta http-equiv=REFRESH CONTENT=1;url=contact.php>';
+        }                
+        /*
+        if ($username == $row[0] &&  == $row[1]) {
         //echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
             switch ($_POST['profile_id']) {
                 case 1:
@@ -47,7 +65,9 @@ if (isset($sql)) {
             //echo("sql學生名字=".$student_row[1])."<br>";
             //echo("sql學生帳號=".$student_row[6])."<br>";
             //echo("sql學生密碼=".$student_row[7])."<br>";
+            */
     }
+    
 }
 
 ?>

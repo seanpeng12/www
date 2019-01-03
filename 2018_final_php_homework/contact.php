@@ -13,14 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="styles/contact.css">
 	<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
 	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-	<link rel="stylesheet" href="sweetalert2.min.css">	
+	<link rel="stylesheet" href="sweetalert2.min.css">
 	<script src="dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		//swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
-		
-		$(function(){
-			$("input[name=profile_id]").change(function(){
-				switch($("input[name=profile_id]").val()){
+
+		$(function () {
+			$("input[name=profile_id]").change(function () {
+				switch ($("input[name=profile_id]").val()) {
 					case 1:
 						$("#loginForm").attr('action', 'teacher.php');
 						alert(1);
@@ -35,10 +35,10 @@
 				}
 			});
 		});
-	
 	</script>
 
 </head>
+
 <body>
 
 	<!-- Modal -->
@@ -331,7 +331,7 @@
             }
             */
         ?>
-		
+
 
 
 		<!-- Contact -->
@@ -342,7 +342,7 @@
 
 					<!-- Get in touch -->
 					<!-- $_SERVER["PHP_SELF"]; -->
-					<form action="login_center.php" method="post"  id="contact_form" class="contact_form">
+					<form action="login_center.php" method="post" id="contact_form" class="contact_form">
 						<div class="col-lg-8 contact_col">
 							<div class="get_in_touch">
 								<div class="section_subtitle">LOG IN</div>
@@ -351,27 +351,27 @@
 									<input type="radio" name="profile_id" value="1" checked required>教師&nbsp
 									<input type="radio" name="profile_id" value="2">學生&nbsp
 									<input type="radio" name="profile_id" value="3">管理者&nbsp
-					</form>
-
 					
-		</div>
-			<div class="contact_form_container">
-			<form action="" method="post" id="loginForm">
-				<div class="row">
-					<div class="col-xl-12">
-						<!-- Name -->
-						<label for="contact_name">帳號*</label>
-						<input type="text" name="account" id="account" class="contact_input" required="required">
-					</div>
-					<div class="col-xl-12 last_name_col">
-						<!-- Last Name -->
-						<label for="contact_last_name">密碼*</label>
-						<input type="password" name="password" id="password" class="contact_input" required="required">
-					</div>
-				</div>
-				</form>
 
-				<!-- JSP跳轉(無post數值(需添加))
+
+				</div>
+				<div class="contact_form_container">
+					
+						<div class="row">
+							<div class="col-xl-12">
+								<!-- Name -->
+								<label for="contact_name">帳號*</label>
+								<input type="text" name="account" id="account" class="contact_input" required="required">
+							</div>
+							<div class="col-xl-12 last_name_col">
+								<!-- Last Name -->
+								<label for="contact_last_name">密碼*</label>
+								<input type="password" name="password" id="password" class="contact_input" required="required">
+							</div>
+						</div>
+					
+
+					<!-- JSP跳轉(無post數值(需添加))
 						<script>
 
 							function output($website) {
@@ -394,8 +394,8 @@
 						 
 				</script>
 				-->
-				
-				<?php
+
+					<?php
                 include("inc.php");
 
                 $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
@@ -471,12 +471,12 @@
                 
 
             ?>
-			
-				<button class="button contact_button" type="submit" onclick=(func()) ><span>確定</span></button>
-				<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
-			</form>
 
-					
+					<button class="button contact_button" type="submit" onclick=(func())><span>確定</span></button>
+					<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
+					</form>
+
+
 				</div>
 			</div>
 		</div>
@@ -531,8 +531,10 @@
 						<div class="copyright ml-auto mr-auto">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
-							 class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<script>
+								document.write(new Date().getFullYear());
+							</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+							<a href="https://colorlib.com" target="_blank">Colorlib</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</div>
 						<div class="footer_social ml-lg-auto">
