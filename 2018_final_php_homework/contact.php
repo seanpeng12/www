@@ -17,7 +17,7 @@
 	<script src="dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		//swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
-
+		/*
 		$(function () {
 			$("input[name=profile_id]").change(function () {
 				switch ($("input[name=profile_id]").val()) {
@@ -35,6 +35,7 @@
 				}
 			});
 		});
+		*/
 	</script>
 
 </head>
@@ -302,7 +303,136 @@
 		</div>
 
 
-		<?php
+
+		<!-- Contact -->
+
+		<div class="contact">
+			<div class="container">
+				<div class="row">
+
+					<!-- Get in touch -->
+					<!-- $_SERVER["PHP_SELF"]; -->
+					<form action="login_center.php" method="post" id="contact_form" class="contact_form">
+						<div class="col-lg-8 contact_col">
+							<div class="get_in_touch">
+								<div class="section_subtitle">LOG IN</div>
+								<div class="section_title">
+									<p>請選擇登入身分<br></p>
+									<input type="radio" name="profile_id" value="1" checked required>教師&nbsp
+									<input type="radio" name="profile_id" value="2">學生&nbsp
+									<input type="radio" name="profile_id" value="3">管理者&nbsp
+
+
+
+								</div>
+								<div class="contact_form_container">
+
+									<div class="row">
+										<div class="col-xl-12">
+											<!-- Name -->
+											<label for="contact_name">帳號*</label>
+											<input type="text" name="account" id="account" class="contact_input" required="required">
+										</div>
+										<div class="col-xl-12 last_name_col">
+											<!-- Last Name -->
+											<label for="contact_last_name">密碼*</label>
+											<input type="password" name="password" id="password" class="contact_input" required="required">
+										</div>
+									</div>
+
+									<button class="button contact_button" type="submit" onclick=(func())><span>確定</span></button>
+									<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
+								</div>
+							</div>
+						</div>
+					</form>
+						<!-- Contact Info -->
+						<div class="col-lg-4 offset-xl-2 contact_col">
+							<div class="contact_info">
+								<div class="contact_info_section">
+									<div class="contact_info_title">輔仁大學</div>
+									<ul>
+										<li>Phone: <span>02 2905 2000</span></li>
+										<li>Address: <span>24205 新北市新莊區中正路510號</span><br></li>
+									</ul>
+								</div>
+								<div class="contact_info_section">
+									<div class="contact_info_title">資管系秘書室-大學部</div>
+									<ul>
+										<li>Phone: <span>02 2905 2666</span></li>
+										<li>FAX: <span>02 2905 2182</span></li>
+									</ul>
+								</div>
+								<div class="contact_info_section">
+									<div class="contact_info_title">資管系秘書室-碩士班</div>
+									<ul>
+										<li>Phone: <span>02 2905 2940</span></li>
+										<li>FAX: <span>02 2905 2182</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="row map_row">
+					<div class="col">
+
+						<!-- Google Map -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!--PHP-->
+	<?php
+	include("inc.php");
+
+	$username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
+	$password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
+                				//echo $username."<br>";
+               					//echo $passord."<br>";
+
+
+	if ($_POST['profile_id'] == 1) {
+		echo "教師" . "<br>";
+		$sql = "SELECT * FROM `sean_web`.`teacher` where `account` = '$username';";
+	} elseif ($_POST['profile_id'] == 2) {
+		echo "學生" . "<br>";
+		$sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
+	} elseif ($_POST['profile_id'] == 3) {
+		echo "管理者" . "<br>";
+		$sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
+	}
+
+	if (isset($sql)) {
+                   				 //學生資料查詢
+		if ($result = mysqli_query($conn, $sql)) {
+                       				 // 一条条获取(殘體中文)
+			$rows = mysqli_fetch_array($result, MYSQLI_BOTH);
+
+			if ($username == $row[6] && $password == $row[7]) {
+                          				  //echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
+				switch ($_POST['profile_id']) {
+					case 1:
+						$goto = 'teacher';
+						break;
+					case 2:
+						$goto = 'student';
+						break;
+					case 3:
+						$goto = 'admin';
+
+				}
+				echo "<script>location.href='{$goto}.php';</script>";
+			}
+                        	//echo("sql學生名字=".$student_row[1])."<br>";
+                            //echo("sql學生帳號=".$student_row[6])."<br>";
+                            //echo("sql學生密碼=".$student_row[7])."<br>";
+		}
+	}
+	?>
+
+	<?php
         /*
             include("inc.php");
             $dbhost = 'localhost';
@@ -329,49 +459,10 @@
             }else{
                 echo "新增不成功";
             }
-            */
-        ?>
+	 */
+	?>
 
-
-
-		<!-- Contact -->
-
-		<div class="contact">
-			<div class="container">
-				<div class="row">
-
-					<!-- Get in touch -->
-					<!-- $_SERVER["PHP_SELF"]; -->
-					<form action="login_center.php" method="post" id="contact_form" class="contact_form">
-						<div class="col-lg-8 contact_col">
-							<div class="get_in_touch">
-								<div class="section_subtitle">LOG IN</div>
-								<div class="section_title">
-									<p>請選擇登入身分<br></p>
-									<input type="radio" name="profile_id" value="1" checked required>教師&nbsp
-									<input type="radio" name="profile_id" value="2">學生&nbsp
-									<input type="radio" name="profile_id" value="3">管理者&nbsp
-					
-
-
-				</div>
-				<div class="contact_form_container">
-					
-						<div class="row">
-							<div class="col-xl-12">
-								<!-- Name -->
-								<label for="contact_name">帳號*</label>
-								<input type="text" name="account" id="account" class="contact_input" required="required">
-							</div>
-							<div class="col-xl-12 last_name_col">
-								<!-- Last Name -->
-								<label for="contact_last_name">密碼*</label>
-								<input type="password" name="password" id="password" class="contact_input" required="required">
-							</div>
-						</div>
-					
-
-					<!-- JSP跳轉(無post數值(需添加))
+	<!--JSP跳轉(無post數值(需添加))
 						<script>
 
 							function output($website) {
@@ -392,164 +483,40 @@
 							
 						}
 						 
-				</script>
-				-->
+						</script>
+	-->
+		<!-- Footer -->
 
-					<?php
-                include("inc.php");
-
-                $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
-                $password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
-                //echo $username."<br>";
-                //echo $passord."<br>";
-   
-    
-                if ($_POST['profile_id']==1) {
-                    echo "教師"."<br>";
-                    $sql = "SELECT * FROM `sean_web`.`teacher` where `account` = '$username';";
-                } elseif ($_POST['profile_id']==2) {
-                    echo "學生"."<br>";
-                    $sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
-                } elseif ($_POST['profile_id']==3) {
-                    echo "管理者"."<br>";
-                    $sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
-                }
-                
-                if (isset($sql)) {
-                    //學生資料查詢
-                    if ($result = mysqli_query($conn, $sql)) {
-                        // 一条条获取(殘體中文)
-                        $rows = mysqli_fetch_array($result, MYSQLI_BOTH);
-                            
-                        if ($username == $row[6] && $password == $row[7]) {
-                            //echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
-                            switch ($_POST['profile_id']) {
-                                case 1:
-                                    $goto = 'teacher';
-                                    break;
-                                case 2:
-                                    $goto = 'student';
-                                    break;
-                                case 3:
-                                    $goto = 'admin';
-
-                            }
-                            echo "<script>location.href='{$goto}.php';</script>";
-                        }
-                        //echo("sql學生名字=".$student_row[1])."<br>";
-                            //echo("sql學生帳號=".$student_row[6])."<br>";
-                            //echo("sql學生密碼=".$student_row[7])."<br>";
-                    }
-                }
-                
-                /*
-                if (isset($sql1)) {
-                    //老師資料查詢
-                    if ($result=mysqli_query($conn, $sql1)) {
-                        // 一条条获取
-                        while ($teacher_row=mysqli_fetch_row($result)) {
-                            //echo("sql老師名字=".$teacher_row[1])."<br>";
-                            //echo("sql老師帳號=".$teacher_row[5])."<br>";
-                            //echo("sql老師密碼=".$teacher_row[6])."<br>";
-                        }
-                    }
-                }
-
-                if (isset($sql2)) {
-                    //管理者資料查詢
-                    if ($result=mysqli_query($conn, $sql2)) {
-                        // 一条条获取
-                        while ($admin_row=mysqli_fetch_row($result)) {
-                            //echo("sql管理名字=".$admin_row[1])."<br>";
-                            //echo("sql管理帳號=".$admin_row[4])."<br>";
-                            //echo("sql管理密碼=".$admin_row[5])."<br>";
-                        }
-                    }
-                }
-                */
-                
-                
-
-            ?>
-
-					<button class="button contact_button" type="submit" onclick=(func())><span>確定</span></button>
-					<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
-					</form>
-
-
-				</div>
-			</div>
-		</div>
-
-		<!-- Contact Info -->
-		<div class="col-lg-3 offset-xl-2 contact_col">
-			<div class="contact_info">
-				<div class="contact_info_section">
-					<div class="contact_info_title">輔仁大學</div>
-					<ul>
-						<li>Phone: <span>02 2905 2000</span></li>
-						<li>Address: <span>24205 新北市新莊區中正路510號</span><br></li>
-					</ul>
-				</div>
-				<div class="contact_info_section">
-					<div class="contact_info_title">資管系秘書室-大學部</div>
-					<ul>
-						<li>Phone: <span>02 2905 2666</span></li>
-						<li>FAX: <span>02 2905 2182</span></li>
-					</ul>
-				</div>
-				<div class="contact_info_section">
-					<div class="contact_info_title">資管系秘書室-碩士班</div>
-					<ul>
-						<li>Phone: <span>02 2905 2940</span></li>
-						<li>FAX: <span>02 2905 2182</span></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row map_row">
-		<div class="col">
-
-			<!-- Google Map -->
-
-		</div>
-	</div>
-	</div>
-	</div>
-
-	<!-- Footer -->
-
-	<div class="footer_overlay"></div>
-	<footer class="footer">
-		<div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-						<div class="footer_logo"><a href="#">Sublime.</a></div>
-						<div class="copyright ml-auto mr-auto">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>
-								document.write(new Date().getFullYear());
-							</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-							<a href="https://colorlib.com" target="_blank">Colorlib</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</div>
-						<div class="footer_social ml-lg-auto">
-							<ul>
-								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
+		<div class="footer_overlay"></div>
+		<footer class="footer">
+			<div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
+							<div class="footer_logo"><a href="#">Sublime.</a></div>
+							<div class="copyright ml-auto mr-auto">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>
+									document.write(new Date().getFullYear());
+								</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+								<a href="https://colorlib.com" target="_blank">Colorlib</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</div>
+							<div class="footer_social ml-lg-auto">
+								<ul>
+									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
 
 	<script src="js/jquery-3.2.1.min.js"></script>

@@ -1,47 +1,64 @@
 <?php
 
-session_start();
+//session_start();
 include("inc.php");
 
 $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
 $password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
 //echo $username."<br>";
 //echo $passord."<br>";
-   
-    
-if ($_POST['profile_id']==1) {
-    echo "教師"."<br>";
+
+
+if ($_POST['profile_id'] == 1) {
+    //echo "教師"."<br>";
     $sql = "SELECT * FROM `sean_web`.`teacher` where `account` = '$username';";
-} elseif ($_POST['profile_id']==2) {
-    echo "學生"."<br>";
+} elseif ($_POST['profile_id'] == 2) {
+    //echo "學生"."<br>";
     $sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
-} elseif ($_POST['profile_id']==3) {
-    echo "管理者"."<br>";
+} elseif ($_POST['profile_id'] == 3) {
+    //echo "管理者"."<br>";
     $sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
 }
 
-            
+
 if (isset($sql)) {
     //學生資料查詢
     if ($result = mysqli_query($conn, $sql)) {
-        // 一条条获取(殘體中文)
-       
-        $rows = mysqli_fetch_row($result);
-        if($row[1] == $username && $row[2] == $password)
-        {
-            //將帳號寫入session，方便驗證使用者身份
-            $_SESSION['username'] = $id;
-            echo '登入成功!';
-            echo $_POST['profile_id'];
+        // 條列獲取
+
+        while ($rows = mysqli_fetch_array($result)) {
+            if ($rows[0] == $username && $rows[1] == $password) {
+                //將帳號寫入session，方便驗證使用者身份
+                $_SESSION['username'] = $id;
+                echo '登入成功!';
+
+                switch ($_POST['profile_id']) {
+                    case 1:
+                        $goto = 'teacher';
+                        break;
+                    case 2:
+                        $goto = 'student';
+                        break;
+                    case 3:
+                        $goto = 'admin';
+
+                }
+                echo "<script>location.href='{$goto}.php';</script>";
+
+            } else {
+                echo '登入失敗!' . "<br>";
+                echo $username . "<br>";
+                echo $password . "<br>";
+                echo '<meta http-equiv=REFRESH CONTENT=1;url=contact.php>';
+            }
+
         }
-        else
-        {
-            echo '登入失敗!';
-            echo $username;
-            echo $password;
-            echo '<meta http-equiv=REFRESH CONTENT=1;url=contact.php>';
-        }                
-        /*
+    }
+}
+
+?>
+
+ <!--
         if ($username == $row[0] &&  == $row[1]) {
         //echo "<script> swal('登入成功', '在這裡輸入訊息文字！', 'success');</script> ";
             switch ($_POST['profile_id']) {
@@ -65,9 +82,4 @@ if (isset($sql)) {
             //echo("sql學生名字=".$student_row[1])."<br>";
             //echo("sql學生帳號=".$student_row[6])."<br>";
             //echo("sql學生密碼=".$student_row[7])."<br>";
-            */
-    }
-    
-}
-
-?>
+ -->

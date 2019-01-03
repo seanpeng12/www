@@ -92,3 +92,22 @@
 
 </body>
 </html>
+/*
+		$(function () {
+			$("input[name=profile_id]").change(function () {
+				switch ($("input[name=profile_id]").val()) {
+					case 1:
+						$("#loginForm").attr('action', 'teacher.php');
+						alert(1);
+						break;
+					case 2:
+						$("#loginForm").attr('action', 'student.php');
+						alert(2);
+						break;
+					case 3:
+						$("#loginForm").attr('action', 'admin.php');
+						alert(3);
+				}
+			});
+		});
+		*/

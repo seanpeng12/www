@@ -216,9 +216,11 @@
 											</ul>
 										</li>
 										<li><a href="contact.php">登出</a></li>
-										
-										
-										<h3 style=color:brown><?php echo $record[1],"  ",$record[0]?> </h3>
+
+
+										<h3 style=color:brown>
+											<?php echo $record[1],"  ",$record[0]?>
+										</h3>
 
 									</ul>
 								</nav>
@@ -461,8 +463,10 @@
 							<div class="copyright ml-auto mr-auto">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
-								<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
-								 class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								<script>
+									document.write(new Date().getFullYear());
+								</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+								<a href="https://colorlib.com" target="_blank">Colorlib</a>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</div>
 							<div class="footer_social ml-lg-auto">
@@ -541,15 +545,34 @@
 			"http://lorempixel.com/1920/1080/transport/2",
 			"http://lorempixel.com/1920/1080/transport/3"
 		],
-		initialPreviewConfig: [
-			{ caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1 },
-			{ caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2 },
-			{ caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3 }
+		initialPreviewConfig: [{
+				caption: "transport-1.jpg",
+				size: 329892,
+				width: "120px",
+				url: "{$url}",
+				key: 1
+			},
+			{
+				caption: "transport-2.jpg",
+				size: 872378,
+				width: "120px",
+				url: "{$url}",
+				key: 2
+			},
+			{
+				caption: "transport-3.jpg",
+				size: 632762,
+				width: "120px",
+				url: "{$url}",
+				key: 3
+			}
 		]
 	});
 	$("#file-4").fileinput({
 		theme: 'fa',
-		uploadExtraData: { kvId: '10' }
+		uploadExtraData: {
+			kvId: '10'
+		}
 	});
 	$(".btn-warning").on('click', function () {
 		var $el = $("#file-4");
@@ -560,7 +583,9 @@
 		}
 	});
 	$(".btn-info").on('click', function () {
-		$("#file-4").fileinput('refresh', { previewClass: 'bg-info' });
+		$("#file-4").fileinput('refresh', {
+			previewClass: 'bg-info'
+		});
 	});
 	/*
 	 $('#file-4').on('fileselectnone', function() {
@@ -587,10 +612,27 @@
 				"http://lorempixel.com/1920/1080/nature/2",
 				"http://lorempixel.com/1920/1080/nature/3"
 			],
-			initialPreviewConfig: [
-				{ caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1 },
-				{ caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2 },
-				{ caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3 }
+			initialPreviewConfig: [{
+					caption: "nature-1.jpg",
+					size: 329892,
+					width: "120px",
+					url: "{$url}",
+					key: 1
+				},
+				{
+					caption: "nature-2.jpg",
+					size: 872378,
+					width: "120px",
+					url: "{$url}",
+					key: 2
+				},
+				{
+					caption: "nature-3.jpg",
+					size: 632762,
+					width: "120px",
+					url: "{$url}",
+					key: 3
+				}
 			]
 		});
 		/*

@@ -215,11 +215,11 @@
 								<div class="details_name">文件初稿30%</div>
 								<div class="product_quantity clearfix">
 									<span>系統描述：</span>
-									<input id="a_1" type="text" pattern="[0-9]*"  value="0">
+									<input id="a_1" type="text" pattern="[0-9]*" value="0">
 								</div>
 								<div class="product_quantity ">
 									<span>需求規格：</span>
-									<input id="a_2" type="text" pattern="[0-9]*"  value="0">
+									<input id="a_2" type="text" pattern="[0-9]*" value="0">
 								</div>
 								<div class="product_quantity clearfix">
 									<span>設計規格：</span>
@@ -232,27 +232,27 @@
 								<div class="product_quantity clearfix">
 									<span>功能創新性：</span>
 									<input id="b_1" type="text" pattern="[0-9]*" value="0">
-									
+
 								</div>
 								<div class="product_quantity clearfix">
 									<span>功能實用性：</span>
 									<input id="b_2" type="text" pattern="[0-9]*" value="0">
-									
+
 								</div>
 								<div class="product_quantity clearfix">
 									<span>介面親和性：</span>
 									<input id="b_3" type="text" pattern="[0-9]*" value="0">
-									
+
 								</div>
 								<div class="product_quantity clearfix">
 									<span>系統技術性</span>
 									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									
+
 								</div>
 								<div class="product_quantity clearfix">
 									<span>內容豐富性</span>
 									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-									
+
 								</div>
 
 								<div>&nbsp;</div>
@@ -267,7 +267,7 @@
 
 								<div class="details_name">評語：</div>
 								<div class="form-group">
-									<label for="exampleFormControlTextarea1">1、本專題組的強項與優點	2、待改善項目：</label>
+									<label for="exampleFormControlTextarea1">1、本專題組的強項與優點 2、待改善項目：</label>
 									<textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
 								</div>
 								<div class="button cart_button"><a href="#">確定</a></div>
@@ -389,7 +389,7 @@
 
 
 
-			
+
 		</div>
 
 		<script src="js/jquery-3.2.1.min.js"></script>
