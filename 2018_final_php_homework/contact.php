@@ -299,8 +299,8 @@
 								<div class="section_subtitle">LOG IN</div>
 								<div class="section_title">
 									<p>請選擇登入身分<br></p>
-									<input type="radio" name="profile_id" value="1" checked required>教師&nbsp
-									<input type="radio" name="profile_id" value="2">學生&nbsp
+									<input type="radio" name="profile_id" value="1">教師&nbsp
+									<input type="radio" name="profile_id" value="2" checked required>學生&nbsp
 									<input type="radio" name="profile_id" value="3">管理者&nbsp
 
 

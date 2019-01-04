@@ -1,10 +1,11 @@
 <?php
 date_default_timezone_set('Asia/Teipei');
+//學校 root 12345678
 
 $conn = mysqli_connect(
     'localhost',
     'root',
-    '96748961'
+    '12345678'
 );
 if (!$conn) {
     echo "資料庫連接失敗";
