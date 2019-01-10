@@ -17,6 +17,15 @@
 </head>
 
 <body>
+	<?php
+		$account_admin = $_GET["A"];
+		
+		//管理者資料查詢
+		include("inc.php");
+		$sql = 'SELECT * FROM sean_web.admin where account= "'.$account_admin.'" ;';
+		$adminName = mysqli_query($conn,$sql);
+		$record = mysqli_fetch_row($adminName);
+	?>
 
 	<div class="super_container">
 
@@ -52,7 +61,11 @@
 											</ul>
 										</li>
 										<li><a href="contact.php">登出</a></li>
-
+										<h3 style=color:brown>
+											<?php 
+												echo "管理者 "."<b>".$record[3]."</b>";
+											?>
+										</h3>
 									</ul>
 								</nav>
 								<div class="header_extra ml-auto">
@@ -188,8 +201,8 @@
 						<div class="avds_xl_container clearfix">
 							<div class="avds_xl_background" style="background-image:url(images/avds_xl.jpg)"></div>
 							<div class="avds_xl_content">
-								<div class="avds_title">教師權限一覽</div>
-								<div class="avds_text">教師權限提供以下功能.</div>
+								<div class="avds_title">管理者權限一覽</div>
+								<div class="avds_text">管理者可以新增，修改，刪除資料</div>
 
 							</div>
 						</div>

@@ -2,7 +2,8 @@
 <html lang="en">
 
 <?
-    include("inc.php");
+    include("inc_new.php");
+    //讀取線上資料庫
 ?>
 
 <head>

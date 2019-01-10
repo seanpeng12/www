@@ -30,12 +30,13 @@
 
 <body>
 	<?php
+		$account_stu = $_GET["A"];
+		
 		//學生資料查詢
 		include("inc.php");
-		$sql = 'SELECT * FROM sean_web.student where account="root";';
+		$sql = 'SELECT * FROM sean_web.student where account= "'.$account_stu.'" ;';
 		$schoolID = mysqli_query($conn,$sql);
 		$record = mysqli_fetch_row($schoolID);
-
 	?>
 
 	<!-- （Modal）for group select -->
@@ -219,7 +220,9 @@
 
 
 										<h3 style=color:brown>
-											<?php echo $record[1],"  ",$record[0]?>
+											<?php 
+												echo $record[3],"  ",$record[2];
+											?>
 										</h3>
 
 									</ul>

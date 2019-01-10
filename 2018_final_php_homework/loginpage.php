@@ -105,16 +105,16 @@ if ($_POST['profile_id'] == 1) {
 
 							switch ($_POST['profile_id']) {
 								case 1:
-									$goto = 'teacher';
+									$goto = 'teacher.php?A='.$rows[0].'';
 									break;
 								case 2:
-									$goto = 'student';
+									$goto = 'student.php?A='.$rows[0].'';
 									break;
 								case 3:
-									$goto = 'admin';
+									$goto = 'admin.php?A='.$rows[0].'';
 
 							}
-							echo "<script>location.href='{$goto}.php';</script>";
+							echo "<script>location.href='{$goto}';</script>";
 
 						} else {
 							echo '<h1><center>登入失敗，請確認帳號密碼</center></h1>';

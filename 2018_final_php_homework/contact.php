@@ -299,8 +299,8 @@
 								<div class="section_subtitle">LOG IN</div>
 								<div class="section_title">
 									<p>請選擇登入身分<br></p>
-									<input type="radio" name="profile_id" value="1">教師&nbsp
-									<input type="radio" name="profile_id" value="2" checked required>學生&nbsp
+									<input type="radio" name="profile_id" value="1" checked>教師&nbsp
+									<input type="radio" name="profile_id" value="2"  required>學生&nbsp
 									<input type="radio" name="profile_id" value="3">管理者&nbsp
 
 
@@ -388,7 +388,7 @@
 	if (isset($sql)) {
                    				 //學生資料查詢
 		if ($result = mysqli_query($conn, $sql)) {
-                       				 // 一条条获取(殘體中文)
+                       				 // 一條條獲取
 			$rows = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 			if ($username == $row[6] && $password == $row[7]) {

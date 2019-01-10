@@ -17,7 +17,16 @@
 </head>
 
 <body>
-
+	<?php
+		$account_t = $_GET["A"];
+		
+		//老師資料查詢
+		include("inc.php");
+		$sql = 'SELECT * FROM sean_web.teacher where account= "'.$account_t.'" ;';
+		$teacherName = mysqli_query($conn,$sql);
+		$record = mysqli_fetch_row($teacherName);
+	?>
+	
 	<div class="super_container">
 
 		<!-- Header -->
@@ -52,7 +61,11 @@
 											</ul>
 										</li>
 										<li><a href="contact.php">登出</a></li>
-
+										<h3 style=color:brown>
+											<?php 
+												echo $record[3]," 老師";
+											?>
+										</h3>
 									</ul>
 								</nav>
 								<div class="header_extra ml-auto">
@@ -190,7 +203,7 @@
 							<div class="avds_xl_content">
 								<div class="avds_title">教師權限一覽</div>
 								<div class="avds_text">教師權限提供以下功能.</div>
-
+								
 							</div>
 						</div>
 					</div>
@@ -224,7 +237,7 @@
 								<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
 								<div class="product_extra product_sale"><a href="categories.php">New</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.php">組別名單</a></div>
+									<div class="product_title"><a href="teacherList.php">組別名單</a></div>
 									<div class="product_price">Group List</div>
 								</div>
 							</div>

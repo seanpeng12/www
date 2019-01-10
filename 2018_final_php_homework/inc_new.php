@@ -5,9 +5,9 @@ date_default_timezone_set('Asia/Teipei');
 //線上資料庫 db.changken.org (sean  12345678)
 
 $conn = mysqli_connect(
-    'localhost',
-    'root',
-    '96748961'
+    'db.changken.org',
+    'sean',
+    '12345678'
 );
 if (!$conn) {
     echo "資料庫連接失敗";
