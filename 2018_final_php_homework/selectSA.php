@@ -177,25 +177,7 @@
 
 		<!-- Home -->
 
-		<div class="home">
-			<div class="home_container">
-				<div class="home_background" style="background-image:url(images/categories.jpg)"></div>
-				<div class="home_content_container">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<div class="home_content">
-									<div class="home_title">線上評分<span>.</span></div>
-									<div class="home_text">
-										<p>請各位評審老師於9月27日(四)前將評審表交給黃助教。</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
 		<!-- Product Details -->
 
@@ -203,7 +185,17 @@
 			<div class="container">
 				<div class="row details_row">
 
-					<!-- Product Content -->
+					
+					<div class="row description_row">
+
+						<div class="col">
+							<div class="description_title_container">
+								<div class="description_title">請選擇欲查詢的組別：</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 選擇 -->
 					<div class="col-lg-12">
 						<div class="details_content">
 							<div class="details_price">系統名稱</div>
@@ -213,209 +205,30 @@
 								<label for="sel1">志願一</label>
 								<select style="color: black" class="form-control" id="sel1">
 								<?
-								//while ($record = mysqli_fetch_array($temp)) 
-								//{
+								while ($record = mysqli_fetch_array($temp)) 
+								{
 								?>
 								
 									<option value="" disabled selected hidden>請選擇專題名稱</option>
 									<option id="a"><?echo $record[0];?></option>
-									<option>sssss</option>
 								<?
-								//};
+								};
 								?>
 								</select>
 							</div>
 
-							<!-- In Stock -->
-							<div class="in_stock_container">
-								<div class="availability">評分狀態:</div>
-								<span>未評分</span>
-
-							</div>
-							<div class="details_text">
-								<div class="details_name">組員</div>
-								<div class="details_price">劉馨柔 黃渝婷 劉皓佳 王翊威 施柏再 </div>
-							</div>
 
 
 							<!-- Product Quantity -->
 							<div class="product_quantity_container">
-								<div class="details_name">文件初稿30%</div>
-								<div class="product_quantity clearfix">
-									<span>系統描述：</span>
-									<input id="a_1" type="text" pattern="[0-9]*" value="0">
-								</div>
-								<div class="product_quantity ">
-									<span>需求規格：</span>
-									<input id="a_2" type="text" pattern="[0-9]*" value="0">
-								</div>
-								<div class="product_quantity clearfix">
-									<span>設計規格：</span>
-									<input id="a_3" type="text" pattern="[0-9]*" value="0">
-								</div>
-
-								<div>&nbsp;</div>
-
-								<div class="details_name">系統功能30%</div>
-								<div class="product_quantity clearfix">
-									<span>功能創新性：</span>
-									<input id="b_1" type="text" pattern="[0-9]*" value="0">
-
-								</div>
-								<div class="product_quantity clearfix">
-									<span>功能實用性：</span>
-									<input id="b_2" type="text" pattern="[0-9]*" value="0">
-
-								</div>
-								<div class="product_quantity clearfix">
-									<span>介面親和性：</span>
-									<input id="b_3" type="text" pattern="[0-9]*" value="0">
-
-								</div>
-								<div class="product_quantity clearfix">
-									<span>系統技術性</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-
-								</div>
-								<div class="product_quantity clearfix">
-									<span>內容豐富性</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="0">
-
-								</div>
-
-								<div>&nbsp;</div>
-
-								<div class="details_name">是否需要補繳？</div>
-								<div>
-									<form action="#" id="contact_form" class="contact_form">
-										<input type="radio" name="word" id="y" checked required>是&nbsp
-										<input type="radio" name="word" id="n">否&nbsp
-								</div>
-								<div>&nbsp;</div>
-
-								<div class="details_name">評語：</div>
-								<div class="form-group">
-									<label for="exampleFormControlTextarea1">1、本專題組的強項與優點 2、待改善項目：</label>
-									<textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
-								</div>
 								<div class="button cart_button"><a href="#">確定</a></div>
 							</div>
 
-							<!-- Share -->
-							<div class="details_share">
-								<span>Share:</span>
-								<ul>
-									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="row description_row">
-
-						<div class="col">
-							<div class="description_title_container">
-								<div class="description_title">評分標準</div>
-							</div>
-							<div class="description_text">
-								<ul>
-									<p>文件初稿30%</p>
-									<li>▪文件內容的系統描述是否流暢，是否使人容易了解；需求規格與設計規格是否正確、是否與系統功能一致。</li>
-									<li>▪文件內容應包含系上所訂文件格式第一至四章中的項目。</li>
-									<p>系統功能30%</p>
-									<li>▪是否具有
-										<ul>
-											<li>
-												<p>創新性</p>&nbsp;&nbsp;&nbsp;系統在功能及技術方面是否具有創意
-											</li>
-											<li>
-												<p>實用性</p>&nbsp;&nbsp;&nbsp;市場、使用者是否接受
-											</li>
-											<li>
-												<p>技術性</p>&nbsp;&nbsp;&nbsp;技術的難易程度
-											</li>
-											<li>
-												<p>親和性</p>&nbsp;&nbsp;&nbsp;人機介面之親和性及互動性
-											</li>
-											<li>
-												<P>豐富性</P>&nbsp;&nbsp;&nbsp;資料內容的正確性充實程度
-											</li>
-										</ul>
-									</li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-							</div>
-
+							
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<!-- Products -->
-
-			<div class="products">
-				<div class="container">
-					<div class="row">
-						<div class="col text-center">
-							<div class="products_title">Related Products</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="product_grid">
-
-								<!-- Product -->
-								<div class="product">
-									<div class="product_image"><img src="images/product_1.jpg" alt=""></div>
-									<div class="product_extra product_new"><a href="categories.php">New</a></div>
-									<div class="product_content">
-										<div class="product_title"><a href="product.php">Smart Phone</a></div>
-										<div class="product_price">$670</div>
-									</div>
-								</div>
-
-								<!-- Product -->
-								<div class="product">
-									<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
-									<div class="product_extra product_sale"><a href="categories.php">Sale</a></div>
-									<div class="product_content">
-										<div class="product_title"><a href="product.php">Smart Phone</a></div>
-										<div class="product_price">$520</div>
-									</div>
-								</div>
-
-								<!-- Product -->
-								<div class="product">
-									<div class="product_image"><img src="images/product_3.jpg" alt=""></div>
-									<div class="product_content">
-										<div class="product_title"><a href="product.php">Smart Phone</a></div>
-										<div class="product_price">$710</div>
-									</div>
-								</div>
-
-								<!-- Product -->
-								<div class="product">
-									<div class="product_image"><img src="images/product_4.jpg" alt=""></div>
-									<div class="product_content">
-										<div class="product_title"><a href="product.php">Smart Phone</a></div>
-										<div class="product_price">$330</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
 
 
 		</div>

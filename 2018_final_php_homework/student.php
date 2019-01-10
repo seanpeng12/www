@@ -26,17 +26,23 @@
 	<script src="../themes/fa/theme.js" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+	
+	
 </head>
 
 <body>
 	<?php
 		$account_stu = $_GET["A"];
 		
-		//學生資料查詢
+		//學生資料查詢，同個account下的學生資訊
 		include("inc.php");
 		$sql = 'SELECT * FROM sean_web.student where account= "'.$account_stu.'" ;';
 		$schoolID = mysqli_query($conn,$sql);
 		$record = mysqli_fetch_row($schoolID);
+
+		$sql2 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
+		VALUES
+		('{$_POST["id"]}','{$_POST["name"]}', '{$_POST["email"]}','{$_POST["phone"]}','{$_POST["departmentGrade"]}',{$_POST["project_id"]})";
 	?>
 
 	<!-- （Modal）for group select -->
@@ -58,7 +64,7 @@
 						<div class="table-responsive">
 							<table class="table">
 								<thead>
-									<tr class="col-xs-2">
+									<tr class="col-xs-1">
 										<th scope="col">#</th>
 										<th scope="col">一</th>
 										<th scope="col">二</th>
