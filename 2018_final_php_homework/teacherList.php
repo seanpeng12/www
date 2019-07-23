@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?
-    include("inc_new.php");
+    include("inc.php");
     //讀取線上資料庫
 ?>
 
@@ -40,9 +40,11 @@
         $sql[2] = "SELECT * FROM `web_temp` WHERE `id` = 3;";
         $sql[3] = "SELECT * FROM `web_temp` WHERE `id` = 4;";
         $sql[4] = "SELECT * FROM `web_temp` WHERE `id` = 5;";
-        
+        $sql_new = "SELECT `student`.`id`,`student`.`name`,`student`.`departmentGrade`,`project`.`name` 
+		FROM `student`,`project` 
+		WHERE `student`.`project_id` = `project`.`id` AND `project`.`id` = 6 ;";
 
-        
+      
         
             
 ?>
@@ -286,14 +288,10 @@
 								<table id="example" class="table table-hover display" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-											<th>年度</th>
-											<th>職業別</th>
-											<th>行業別</th>
-											<th>總薪資</th>
-											<th>經常性薪資</th>
-											<th>非經常性薪資</th>
-											<th>功能</th>
-
+											<th>學號</th>
+											<th>名字</th>
+											<th>系級</th>
+											<th>專題名稱</th>
 										</tr>
 									</thead>
 									
@@ -301,11 +299,11 @@
 									<?   
 									 if (isset($sql)) {
 										
-										for($i = 0;$i<5 ;$i++){
+										for($i = 0;$i<2 ;$i++){
 											echo "<tr>";
-											$result = mysqli_query($conn, $sql[$i]);
+											$result = mysqli_query($conn, $sql_new[$i]);
 											$rows = mysqli_fetch_array($result);
-											for($j = 0;$j<6 ;$j++){
+											for($j = 0;$j<3 ;$j++){
 											 	echo "<th>$rows[$j]</th>";
 											}
 											echo '<th><input type="submit"></th>';

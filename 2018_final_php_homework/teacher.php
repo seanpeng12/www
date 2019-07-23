@@ -18,6 +18,7 @@
 
 <body>
 	<?php
+		//取得登入帳號代號
 		$account_t = $_GET["A"];
 		
 		//老師資料查詢
@@ -25,6 +26,8 @@
 		$sql = 'SELECT * FROM sean_web.teacher where account= "'.$account_t.'" ;';
 		$teacherName = mysqli_query($conn,$sql);
 		$record = mysqli_fetch_row($teacherName);
+
+		
 	?>
 	
 	<div class="super_container">

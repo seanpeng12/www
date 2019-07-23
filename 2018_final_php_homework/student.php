@@ -32,17 +32,39 @@
 
 <body>
 	<?php
-		$account_stu = $_GET["A"];
+	//取得登入帳號代號
+	$account_stu = $_GET["A"];
 		
-		//學生資料查詢，同個account下的學生資訊
-		include("inc.php");
-		$sql = 'SELECT * FROM sean_web.student where account= "'.$account_stu.'" ;';
-		$schoolID = mysqli_query($conn,$sql);
-		$record = mysqli_fetch_row($schoolID);
+	//學生資料查詢，同個account下的學生資訊
+	include("inc.php");
+	$sql = 'SELECT * FROM sean_web.student where account= "'.$account_stu.'" ;';
+	$schoolID = mysqli_query($conn, $sql);
+	$record = mysqli_fetch_row($schoolID);
 
-		$sql2 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
-		VALUES
-		('{$_POST["id"]}','{$_POST["name"]}', '{$_POST["email"]}','{$_POST["phone"]}','{$_POST["departmentGrade"]}',{$_POST["project_id"]})";
+// $sql_1 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
+// 		VALUES
+// 		('{$_POST["id_1"]}','{$_POST["name_1"]}', '{$_POST["email_1"]}','{$_POST["phone_1"]}','{$_POST["departmentGrade_1"]}',{$_POST["project_id"]})";
+// mysqli_query($conn, $sql_1);
+
+// $sql_2 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
+// 		VALUES
+// 		('{$_POST["id_2"]}','{$_POST["name_2"]}', '{$_POST["email_2"]}','{$_POST["phone_2"]}','{$_POST["departmentGrade_2"]}',{$_POST["project_id"]})";
+// mysqli_query($conn, $sql_2);
+
+// $sql_3 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
+// 		VALUES
+// 		('{$_POST["id_3"]}','{$_POST["name_3"]}', '{$_POST["email_3"]}','{$_POST["phone_3"]}','{$_POST["departmentGrade_3"]}',{$_POST["project_id"]})";
+// mysqli_query($conn, $sql_3);
+
+// $sql_4 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
+// 		VALUES
+// 		('{$_POST["id_4"]}','{$_POST["name_4"]}', '{$_POST["email_4"]}','{$_POST["phone_4"]}','{$_POST["departmentGrade_4"]}',{$_POST["project_id"]})";
+// mysqli_query($conn, $sql_4);
+
+// $sql_5 = "INSERT INTO `student` (`id`, `name`, `email`, `phone`, `departmentGrade`, `project_id`)
+// 		VALUES
+// 		('{$_POST["id_5"]}','{$_POST["name_5"]}', '{$_POST["email_5"]}','{$_POST["phone_5"]}','{$_POST["departmentGrade_5"]}',{$_POST["project_id"]})";
+// mysqli_query($conn, $sql_5);
 	?>
 
 	<!-- （Modal）for group select -->
@@ -60,7 +82,9 @@
 				<div class="modal-body">
 					<p>輔仁大學資訊管理系第三十六屆資訊系統專題</p>
 					<h4>組員資料</h4>
-					<form action="#">
+					<p>組別：</p>
+					<form action="<? $_SERVER["PHP_SELF"] ?>">
+						<input type="text" name="project_id">
 						<div class="table-responsive">
 							<table class="table">
 								<thead>
@@ -76,43 +100,43 @@
 								<Tbody>
 									<tr>
 										<th scope="row">姓名</th>
-										<td><input type="text" placeholder="中文或護照英文名" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
+										<td><input type="text" name="name_1" placeholder="中文或護照英文名"></td>
+										<td><input type="text" name="name_2"></td>
+										<td><input type="text" name="name_3"></td>
+										<td><input type="text" name="name_4"></td>
+										<td><input type="text" name="name_5"></td>
 									</tr>
 									<tr>
 										<th scope="row">學號</th>
-										<td><input type="text" placeholder="406123456" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
+										<td><input type="text" name="id_1" placeholder="406123456" ></td>
+										<td><input type="text" name="id_2"></td>
+										<td><input type="text" name="id_3"></td>
+										<td><input type="text" name="id_4"></td>
+										<td><input type="text" name="id_5"></td>
 									</tr>
 									<tr>
 										<th scope="row">班級</th>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
+										<td><input type="text" name="departmentGrade_1" placeholder="資管二甲"></td>
+										<td><input type="text" name="departmentGrade_2"></td>
+										<td><input type="text" name="departmentGrade_3"></td>
+										<td><input type="text" name="departmentGrade_4"></td>
+										<td><input type="text" name="departmentGrade_5"></td>
 									</tr>
 									<tr>
 										<th scope="row">聯絡電話</th>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
+										<td><input type="text" name="phone_1" placeholder="0225023075"></td>
+										<td><input type="text" name="phone_2"></td>
+										<td><input type="text" name="phone_3"></td>
+										<td><input type="text" name="phone_4"></td>
+										<td><input type="text" name="phone_5"></td>
 									</tr>
 									<tr>
 										<th scope="row">E-mail</th>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
-										<td><input type="text" required="required"></td>
+										<td><input type="text" name="email_1" placeholder="xxxx@gmail.com"></td>
+										<td><input type="text" name="email_2"></td>
+										<td><input type="text" name="email_3"></td>
+										<td><input type="text" name="email_4"></td>
+										<td><input type="text" name="email_5"></td>
 									</tr>
 								</Tbody>
 							</table>
@@ -200,7 +224,7 @@
 					<div class="row">
 						<div class="col">
 							<div class="header_content d-flex flex-row align-items-center justify-content-start">
-								<div class="logo"><a href="#">驗證LDAP</a></div>
+								<div class="logo"><a href="#">學生專區</a></div>
 								<nav class="main_nav">
 									<ul>
 										<li class="hassubs active">
@@ -225,11 +249,7 @@
 										<li><a href="contact.php">登出</a></li>
 
 
-										<h3 style=color:brown>
-											<?php 
-												echo $record[3],"  ",$record[2];
-											?>
-										</h3>
+										
 
 									</ul>
 								</nav>
@@ -386,6 +406,12 @@
 
 					<!-- Get in touch -->
 					<div class="col-lg-6 contact_col">
+						<h3>學生資料：</h3>
+						<h3 style=color:brown>
+						<?php 
+							echo "姓名：" , $record[3], "  學號：", $record[2];
+						?>
+						</h3>
 
 
 						<h3>新增/修改/刪除組員</h3>
@@ -397,16 +423,26 @@
 						<button class="btn btn-primary btn-lg">分組名單</button>
 						<h3>上傳專題文檔（僅限PDF）</h3>
 						<div>
-							<form enctype="multipart/form-data">
+							<form enctype="multipart/form-data" action="upload.php" method="POST">
 
 								<div class="file-loading">
-									<input id="file-0a" class="file" type="file" multiple data-min-file-count="1">
+									<input id="file-0a" class="file" accept="application/pdf" type="file" multiple data-min-file-count="1">
 								</div>
 								<br>
 							</form>
 						</div>
-
-
+						<?PHP
+					if (!empty($_FILES['uploaded_file'])) {
+						$path = "uploads/";
+						$path = $path . basename($_FILES['uploaded_file']['name']);
+						if (move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+							echo "The file " . basename($_FILES['uploaded_file']['name']) .
+								" 已經上傳!";
+						} else {
+							echo "上傳檔案有誤，請重試";
+						}
+					}
+						?>
 
 
 					</div>

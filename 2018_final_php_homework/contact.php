@@ -14,9 +14,18 @@
 	<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
 	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 	<link rel="stylesheet" href="sweetalert2.min.css">
+	<!--自動跳轉-->
+	<!-- <meta http-equiv="refresh" content="5; url=content.php"> -->
 	<script src="dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		//swal.setDefaults({confirmButtonText :"確定" , cancelButtonText :"取消"	}); 
+
+		// var time = 5;
+		// function a(){
+		// 	window.setTimeout('reload()', 5)
+		// 	time = time -1;
+		// 	document.getElementById('back'.innerHTML =time);
+		}
 	</script>
 
 </head>
@@ -102,7 +111,7 @@
 		<header class="header">
 			<div class="header_container">
 				<div class="container">
-					<div class="row">
+ 					<div class="row">
 						<div class="col">
 							<div class="header_content d-flex flex-row align-items-center justify-content-start">
 								<div class="logo"><a href="#">登入</a></div>
@@ -112,7 +121,7 @@
 											<a href="index.php">Home</a>
 											<ul>
 												<li><a href="categories.php">管理者工具</a></li>
-												<li><a href="product.php">Product</a></li>ㄅ
+												<li><a href="product.php">Product</a></li> 
 												<li><a href="cart.php">Cart</a></li>
 												<li><a href="checkout.php">Check out</a></li>
 												<li><a href="contact.php">登入</a></li>
@@ -140,8 +149,7 @@
 								<div class="header_extra ml-auto">
 									<div class="shopping_cart">
 										<a href="cart.php">
-											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-											 viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
+											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
 												<g>
 													<path d="M440.1,422.7l-28-315.3c-0.6-7-6.5-12.3-13.4-12.3h-57.6C340.3,42.5,297.3,0,244.5,0s-95.8,42.5-96.6,95.1H90.3
 													c-7,0-12.8,5.3-13.4,12.3l-28,315.3c0,0.4-0.1,0.8-0.1,1.2c0,35.9,32.9,65.1,73.4,65.1h244.6c40.5,0,73.4-29.2,73.4-65.1
@@ -155,8 +163,7 @@
 									</div>
 									<div class="search">
 										<div class="search_icon">
-											<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-											 x="0px" y="0px" viewBox="0 0 475.084 475.084" style="enable-background:new 0 0 475.084 475.084;" xml:space="preserve">
+											<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 475.084 475.084" style="enable-background:new 0 0 475.084 475.084;" xml:space="preserve">
 												<g>
 													<path d="M464.524,412.846l-97.929-97.925c23.6-34.068,35.406-72.047,35.406-113.917c0-27.218-5.284-53.249-15.852-78.087
 												c-10.561-24.842-24.838-46.254-42.825-64.241c-17.987-17.987-39.396-32.264-64.233-42.826
@@ -300,7 +307,7 @@
 								<div class="section_title">
 									<p>請選擇登入身分<br></p>
 									<input type="radio" name="profile_id" value="1" checked>教師&nbsp
-									<input type="radio" name="profile_id" value="2"  required>學生&nbsp
+									<input type="radio" name="profile_id" value="2" required>學生&nbsp
 									<input type="radio" name="profile_id" value="3">管理者&nbsp
 
 
@@ -321,38 +328,38 @@
 										</div>
 									</div>
 
-									<button class="button contact_button" type="submit" onclick=(func())><span>確定</span></button>
+									<button class="button contact_button" type="submit"><span>確定</span></button>
 									<a href="Sign_in.php" class="btn btn-light"> 忘記密碼？</a>
 								</div>
 							</div>
 						</div>
 					</form>
-						<!-- Contact Info -->
-						<div class="col-lg-4 offset-xl-2 contact_col">
-							<div class="contact_info">
-								<div class="contact_info_section">
-									<div class="contact_info_title">輔仁大學</div>
-									<ul>
-										<li>Phone: <span>02 2905 2000</span></li>
-										<li>Address: <span>24205 新北市新莊區中正路510號</span><br></li>
-									</ul>
-								</div>
-								<div class="contact_info_section">
-									<div class="contact_info_title">資管系秘書室-大學部</div>
-									<ul>
-										<li>Phone: <span>02 2905 2666</span></li>
-										<li>FAX: <span>02 2905 2182</span></li>
-									</ul>
-								</div>
-								<div class="contact_info_section">
-									<div class="contact_info_title">資管系秘書室-碩士班</div>
-									<ul>
-										<li>Phone: <span>02 2905 2940</span></li>
-										<li>FAX: <span>02 2905 2182</span></li>
-									</ul>
-								</div>
+					<!-- Contact Info -->
+					<div class="col-lg-4 offset-xl-2 contact_col">
+						<div class="contact_info">
+							<div class="contact_info_section">
+								<div class="contact_info_title">輔仁大學</div>
+								<ul>
+									<li>Phone: <span>02 2905 2000</span></li>
+									<li>Address: <span>24205 新北市新莊區中正路510號</span><br></li>
+								</ul>
+							</div>
+							<div class="contact_info_section">
+								<div class="contact_info_title">資管系秘書室-大學部</div>
+								<ul>
+									<li>Phone: <span>02 2905 2666</span></li>
+									<li>FAX: <span>02 2905 2182</span></li>
+								</ul>
+							</div>
+							<div class="contact_info_section">
+								<div class="contact_info_title">資管系秘書室-碩士班</div>
+								<ul>
+									<li>Phone: <span>02 2905 2940</span></li>
+									<li>FAX: <span>02 2905 2182</span></li>
+								</ul>
 							</div>
 						</div>
+					</div>
 				</div>
 				<div class="row map_row">
 					<div class="col">
@@ -364,57 +371,64 @@
 			</div>
 		</div>
 
-	<!--PHP-->
-	<?php
-	include("inc.php");
+	
+		<?php
+	
+		// include("inc.php");
 
-	$username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
-	$password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
-                				//echo $username."<br>";
-               					//echo $passord."<br>";
+		// $username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
+		// $password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
+		// // echo $username."<br>";
+		// // echo $password."<br>";
+		
+		// //依身分搜尋table
+		// if ($_POST['profile_id'] == 1) {
+		// 	echo "教師" . "<br>";
+		// 	$sql = "SELECT * FROM `sean_web`.`teacher` where `account` = '$username';";
+		// } elseif ($_POST['profile_id'] == 2) {
+		// 	echo "學生" . "<br>";
+		// 	$sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
+		// } elseif ($_POST['profile_id'] == 3) {
+		// 	echo "管理者" . "<br>";
+		// 	$sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
+		// }
 
+		// if(!$status){
+		// 	window.history.back();
+		// }
 
-	if ($_POST['profile_id'] == 1) {
-		echo "教師" . "<br>";
-		$sql = "SELECT * FROM `sean_web`.`teacher` where `account` = '$username';";
-	} elseif ($_POST['profile_id'] == 2) {
-		echo "學生" . "<br>";
-		$sql = "SELECT * FROM `sean_web`.`student` where `account` = '$username';";
-	} elseif ($_POST['profile_id'] == 3) {
-		echo "管理者" . "<br>";
-		$sql = "SELECT * FROM `sean_web`.`admin` where `account` = '$username';";
-	}
+		// if (isset($sql)) {
+		// 	//學生資料查詢
+		// 	if ($result = mysqli_query($conn, $sql)) {
+		// 		// 一條條獲取
+		// 		$rows = mysqli_fetch_array($result, MYSQLI_BOTH);
 
-	if (isset($sql)) {
-                   				 //學生資料查詢
-		if ($result = mysqli_query($conn, $sql)) {
-                       				 // 一條條獲取
-			$rows = mysqli_fetch_array($result, MYSQLI_BOTH);
+		// 		if ($username == $row[6] && $password == $row[7]) {
+		// 			//
+		// 			switch ($_POST['profile_id']) {
+		// 				case 1:
+		// 					$goto = 'teacher';
+		// 					break;
+		// 				case 2:
+		// 					$goto = 'student';
+		// 					break;
+		// 				case 3:
+		// 					$goto = 'admin';
+		// 			}
+		// 			echo "<script>location.href='{$goto}.php';</script>";
+				
 
-			if ($username == $row[6] && $password == $row[7]) {
-            
-				switch ($_POST['profile_id']) {
-					case 1:
-						$goto = 'teacher';
-						break;
-					case 2:
-						$goto = 'student';
-						break;
-					case 3:
-						$goto = 'admin';
+		// 		}
+		// 		//echo("sql學生名字=".$student_row[1])."<br>";
+		// 		//echo("sql學生帳號=".$student_row[6])."<br>";
+		// 		//echo("sql學生密碼=".$student_row[7])."<br>";
+		// 	}
+		// }
+		
+		?>
 
-				}
-				echo "<script>location.href='{$goto}.php';</script>";
-			}
-            //echo("sql學生名字=".$student_row[1])."<br>";
-            //echo("sql學生帳號=".$student_row[6])."<br>";
-            //echo("sql學生密碼=".$student_row[7])."<br>";
-		}
-	}
-	?>
-
-	<?php
-        /*
+		<?php
+		/*
             include("inc.php");
             $dbhost = 'localhost';
             $dbuser = 'root';
@@ -441,9 +455,9 @@
                 echo "新增不成功";
             }
 	 */
-	?>
+		?>
 
-	<!--JSP跳轉(無post數值(需添加))
+		<!--JSP跳轉(無post數值(需添加))
 						<script>
 
 							function output($website) {

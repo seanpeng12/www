@@ -18,6 +18,7 @@
 
 <body>
 	<?php
+		//取得登入帳號代號
 		$account_admin = $_GET["A"];
 		
 		//管理者資料查詢

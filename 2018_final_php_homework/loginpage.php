@@ -25,8 +25,8 @@ $act = '';
 //session_start();
 include("inc.php");
 
-$username = $_POST["account"]; /* 剛剛text 輸入的帳號*/
-$password = $_POST["password"]; /* 剛剛text 輸入的密碼*/
+$username = $_POST["account"]; /* contact.php 輸入的帳號*/
+$password = $_POST["password"]; /* contact.php  輸入的密碼*/
 //echo $username."<br>";
 //echo $passord."<br>";
 
@@ -91,15 +91,15 @@ if ($_POST['profile_id'] == 1) {
 		<div class="container">
 			<div class="row">
 				<div class="col-sm product_title">
-					<?
+				<?
 				if (isset($sql)) {
     
-				if ($result = mysqli_query($conn, $sql)) {
+				  if ($result = mysqli_query($conn, $sql)) {
    
 
 					while ($rows = mysqli_fetch_array($result)) {
 						if ($rows[0] == $username && $rows[1] == $password) {
-							$_SESSION['username'] = $id;
+							
                 			echo '登入成功!';
                 			echo '<h1><center>登入成功!</center></h1>';
 
@@ -115,10 +115,11 @@ if ($_POST['profile_id'] == 1) {
 
 							}
 							echo "<script>location.href='{$goto}';</script>";
+							echo "<script>alert('$username 與 $password');</script>";
 
 						} else {
-							echo '<h1><center>登入失敗，請確認帳號密碼</center></h1>';
-							echo '<meta http-equiv=REFRESH CONTENT=1;url=contact.php>';
+							echo '<h1><center>登入失敗，請確認您的帳號密碼，3秒後跳回登入頁面</center></h1>';
+							echo '<meta http-equiv=REFRESH CONTENT=3;url=contact.php>';
                 	//echo $username . "<br>";
                 	//echo $password . "<br>";
                 	//echo '<meta http-equiv=REFRESH CONTENT=1;url=contact.php>';
@@ -126,11 +127,9 @@ if ($_POST['profile_id'] == 1) {
 
 
 					}
+				  }
 				}
-			}
-			?>
-
-					
+			    ?>
 				</div>
 
 			</div>

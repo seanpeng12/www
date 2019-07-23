@@ -213,15 +213,15 @@
 								<label for="sel1">志願一</label>
 								<select style="color: black" class="form-control" id="sel1">
 								<?
-								//while ($record = mysqli_fetch_array($temp)) 
-								//{
+								while ($record = mysqli_fetch_array($temp)) 
+								{
 								?>
 								
 									<option value="" disabled selected hidden>請選擇專題名稱</option>
 									<option id="a"><?echo $record[0];?></option>
-									<option>sssss</option>
+									
 								<?
-								//};
+								};
 								?>
 								</select>
 							</div>
